@@ -1,7 +1,7 @@
 `timescale 1ns/1ns
-`include "stddef.h"
-`include "global_config.h"
-`include "spm.h"
+`include "stddef.v"
+`include "global_config.v"
+`include "spm.v"
 
 module spm_tb;
 reg clk, rst_n;

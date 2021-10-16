@@ -1,5 +1,7 @@
-`include "../../include/stddef.h"
-`include "../../include/bus.h"
+`include "stddef.v"
+`include "global_config.v"
+`include "bus.v"
+
 module bus_arbiter (
     input rst,
     input clk,

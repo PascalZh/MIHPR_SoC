@@ -1,5 +1,6 @@
-`include "stddef.h"
-`include "cpu.h"
+`include "stddef.v"
+`include "global_config.v"
+`include "cpu.v"
 
 module gpr (
          input clk,
@@ -31,8 +32,7 @@ always @(posedge clk, `RST_EDGE rst) begin
     for (i = 0; i < `GPR_NUM; i = i + 1) begin
       gpr[i] <= #1 `WORD_DATA_W'h0;
     end
-  end
-  else begin
+  end else begin
     if (we_ == `ENABLE_) begin
       gpr[wr_addr] <= #1 wr_data;
     end

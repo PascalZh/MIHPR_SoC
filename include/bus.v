@@ -17,3 +17,9 @@
 `define BUS_SLAVE_5 5
 `define BUS_SLAVE_6 6
 `define BUS_SLAVE_7 7
+
+`define BusIfStateIndex 1:0
+`define BUS_IF_STATE_IDLE 2'h0
+`define BUS_IF_STATE_REQ 2'h1
+`define BUS_IF_STATE_ACCESS 2'h2
+`define BUS_IF_STATE_STALL 2'h3

@@ -1,5 +1,5 @@
-`include "stddef.v"
-`include "bus.v"
+`include "stddef.vh"
+`include "bus.vh"
 
 module bus(
     input clk,

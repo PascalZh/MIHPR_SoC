@@ -1,6 +1,6 @@
-`include "stddef.v"
-`include "global_config.v"
-`include "cpu.v"
+`include "stddef.vh"
+`include "global_config.vh"
+`include "cpu.vh"
 
 module gpr (
          input clk,

@@ -1,6 +1,6 @@
-`include "stddef.v"
-`include "global_config.v"
-`include "spm.v"
+`include "stddef.vh"
+`include "global_config.vh"
+`include "spm.vh"
 
 module spm (
          input clk,

@@ -1,7 +1,7 @@
 `timescale 1ns/1ns
-`include "stddef.v"
-`include "global_config.v"
-`include "spm.v"
+`include "stddef.vh"
+`include "global_config.vh"
+`include "spm.vh"
 
 module spm_tb;
 reg clk, rst_n;
@@ -52,6 +52,5 @@ initial begin
   #(CLK_PERIOD*20);
   $stop;
 end
-
 
 endmodule

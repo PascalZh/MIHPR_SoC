@@ -1,6 +1,6 @@
-`include "stddef.v"
-`include "global_config.v"
-`include "bus.v"
+`include "stddef.vh"
+`include "global_config.vh"
+`include "bus.vh"
 
 module bus_arbiter (
     input rst,
@@ -15,7 +15,7 @@ module bus_arbiter (
     output reg m3_grnt_
 );
 
-reg [`BusOwnerBus] owner;
+reg [`BusOwner] owner;
 
 // owner --> grnt_
 always @(*) begin

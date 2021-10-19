@@ -1,6 +1,7 @@
-`include "stddef.v"
-`include "global_config.v"
-`include "bus.v"
+`include "stddef.vh"
+`include "global_config.vh"
+`include "cpu.vh"
+`include "bus.vh"
 
 // used to communicate with spm
 interface simple_bus_io;
@@ -49,11 +50,11 @@ endinterface: bus_io
 interface pipeline_io;
   logic stall;
   logic flush;
-  logic busy;
   modport master (
-    input stall,
-          flush,
-    output busy  // the bus is busy
+    input stall, flush
+  );
+  modport slave (
+    output stall, flush
   );
 endinterface: pipeline_io
 
@@ -62,6 +63,7 @@ module bus_if (
          input rst,
 
          pipeline_io.master pl,
+         output reg busy,
 
          simple_bus_io.master cpu,
 
@@ -84,7 +86,7 @@ assign spm.wr_data = cpu.wr_data;
 always @(*) begin
   cpu.rd_data = `WORD_DATA_W'h0;
   spm.as_ = `DISABLE_;
-  pl.busy = `DISABLE;
+  busy = `DISABLE;
 
   case (state)
     `BUS_IF_STATE_IDLE: begin
@@ -97,13 +99,13 @@ always @(*) begin
             end
           end
         end else begin  // accessing bus
-          pl.busy = `ENABLE;
+          busy = `ENABLE;
         end
       end
     end
 
     `BUS_IF_STATE_REQ: begin
-      pl.busy = `ENABLE;
+      busy = `ENABLE;
     end
 
     // accessing the bus
@@ -113,7 +115,7 @@ always @(*) begin
           cpu.rd_data = bus.rd_data;
         end
       end else begin
-        pl.busy = `ENABLE;
+        busy = `ENABLE;
       end
     end
 

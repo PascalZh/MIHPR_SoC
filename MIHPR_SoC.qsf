@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE AUTO
-set_global_assignment -name TOP_LEVEL_ENTITY bus_if
+set_global_assignment -name TOP_LEVEL_ENTITY if_stage
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:29:36  OCTOBER 10, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION 13.0
@@ -59,6 +59,8 @@ set_global_assignment -name EDA_TEST_BENCH_FILE testbench/bus_tb.v -section_id b
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench/spm_tb.v -section_id spm_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE chip/spm.v -section_id spm_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE dpram.v -section_id spm_tb
+set_global_assignment -name SYSTEMVERILOG_FILE chip/if_stage/if_stage.sv
+set_global_assignment -name SYSTEMVERILOG_FILE chip/if_stage/if_reg.sv
 set_global_assignment -name SYSTEMVERILOG_FILE chip/if_stage/bus_if.sv
 set_global_assignment -name VERILOG_FILE chip/spm.v
 set_global_assignment -name VERILOG_FILE chip/gpr.v

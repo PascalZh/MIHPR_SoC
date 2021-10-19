@@ -1,5 +1,5 @@
-`include "stddef.v"
-`include "bus.v"
+`include "stddef.vh"
+`include "bus.vh"
 
 module bus_slave_mux (
     input s0_cs_,

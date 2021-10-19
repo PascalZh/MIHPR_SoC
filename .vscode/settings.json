@@ -1,11 +1,15 @@
 {
   "cSpell.words": [
+    "dpram",
     "endcase",
     "endinterface",
     "endmodule",
     "grnt",
+    "localparam",
     "megafunction",
     "modport",
+    "negedge",
+    "posedge",
     "stddef"
   ]
 }

@@ -2,7 +2,7 @@
 `include "bus.vh"
 
 module bus_addr_dec (
-    input [`WordAddrBus] s_addr,
+    input [`WordAddr] s_addr,
     output reg s0_cs_,
     output reg s1_cs_,
     output reg s2_cs_,

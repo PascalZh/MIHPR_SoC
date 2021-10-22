@@ -2,34 +2,34 @@
 `include "bus.vh"
 
 module bus_master_mux (
-    input [`WordAddrBus] m0_addr,
+    input [`WordAddr] m0_addr,
     input m0_as_,
     input m0_rw,
-    input [`WordDataBus] m0_wr_data,
+    input [`WordData] m0_wr_data,
     input m0_grnt_,
 
-    input [`WordAddrBus] m1_addr,
+    input [`WordAddr] m1_addr,
     input m1_as_,
     input m1_rw,
-    input [`WordDataBus] m1_wr_data,
+    input [`WordData] m1_wr_data,
     input m1_grnt_,
 
-    input [`WordAddrBus] m2_addr,
+    input [`WordAddr] m2_addr,
     input m2_as_,
     input m2_rw,
-    input [`WordDataBus] m2_wr_data,
+    input [`WordData] m2_wr_data,
     input m2_grnt_,
 
-    input [`WordAddrBus] m3_addr,
+    input [`WordAddr] m3_addr,
     input m3_as_,
     input m3_rw,
-    input [`WordDataBus] m3_wr_data,
+    input [`WordData] m3_wr_data,
     input m3_grnt_,
 
-    output reg [`WordAddrBus] s_addr,
+    output reg [`WordAddr] s_addr,
     output reg s_as_,
     output reg s_rw,
-    output reg [`WordDataBus] s_wr_data
+    output reg [`WordData] s_wr_data
 );
 
 always @(*) begin

@@ -1,21 +1,19 @@
-`include "stddef.vh"
-`include "global_config.vh"
 `include "cpu.vh"
 `include "bus.vh"
 
 // used to communicate with spm
 interface simple_bus_io;
-  logic [`WordAddrBus] addr;
+  logic [`WordAddr] addr;
   logic as_;
   logic rw;
-  logic [`WordDataBus] wr_data;
-  logic [`WordDataBus] rd_data;
+  logic [`WordData] wr_data;
+  logic [`WordData] rd_data;
 
-  modport master (
+  modport slave (
     input addr, as_, rw, wr_data,
     output rd_data
   );
-  modport slave (
+  modport master (
     input rd_data,
     output addr, as_, rw, wr_data
   );
@@ -25,21 +23,21 @@ interface bus_io;
   logic grnt_;
   logic req_;
 
-  logic [`WordAddrBus] addr;
+  logic [`WordAddr] addr;
   logic as_;
   logic rw;
-  logic [`WordDataBus] wr_data;
+  logic [`WordData] wr_data;
 
-  logic [`WordDataBus] rd_data;
+  logic [`WordData] rd_data;
   logic rdy_;
 
-  modport master (
+  modport slave (
     input addr, as_, rw, wr_data,
     output rd_data,
     input req_,
     output grnt_, rdy_
   );
-  modport slave (
+  modport master (
     input rd_data,
     output addr, as_, rw, wr_data,
     output req_,
@@ -50,10 +48,10 @@ endinterface: bus_io
 interface pipeline_io;
   logic stall;
   logic flush;
-  modport master (
+  modport slave (
     input stall, flush
   );
-  modport slave (
+  modport master (
     output stall, flush
   );
 endinterface: pipeline_io
@@ -62,17 +60,17 @@ module bus_if (
          input clk,
          input rst,
 
-         pipeline_io.master pl,
+         pipeline_io.slave pl,
          output reg busy,
 
-         simple_bus_io.master cpu,
+         simple_bus_io.slave cpu,
 
-         simple_bus_io.slave spm,
+         simple_bus_io.master spm,
 
-         bus_io.slave bus
+         bus_io.master bus
        );
 
-reg [`WordDataBus] rd_buf;
+reg [`WordData] rd_buf;
 reg [`BusIfStateIndex] state;
 wire [`BusSlaveIndex] s_index;
 

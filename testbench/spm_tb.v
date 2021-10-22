@@ -10,8 +10,8 @@ integer i;
 reg [`SpmAddrBus] addr;
 reg as_;
 reg rw;
-reg [`WordDataBus] wr_data;
-wire [`WordDataBus] rd_data;
+reg [`WordData] wr_data;
+wire [`WordData] rd_data;
 
 spm spm(
       .clk (clk),

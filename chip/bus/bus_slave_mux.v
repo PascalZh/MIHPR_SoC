@@ -3,38 +3,38 @@
 
 module bus_slave_mux (
     input s0_cs_,
-    input [`WordDataBus] s0_rd_data,
+    input [`WordData] s0_rd_data,
     input s0_rdy_,
 
     input s1_cs_,
-    input [`WordDataBus] s1_rd_data,
+    input [`WordData] s1_rd_data,
     input s1_rdy_,
 
     input s2_cs_,
-    input [`WordDataBus] s2_rd_data,
+    input [`WordData] s2_rd_data,
     input s2_rdy_,
 
     input s3_cs_,
-    input [`WordDataBus] s3_rd_data,
+    input [`WordData] s3_rd_data,
     input s3_rdy_,
 
     input s4_cs_,
-    input [`WordDataBus] s4_rd_data,
+    input [`WordData] s4_rd_data,
     input s4_rdy_,
 
     input s5_cs_,
-    input [`WordDataBus] s5_rd_data,
+    input [`WordData] s5_rd_data,
     input s5_rdy_,
 
     input s6_cs_,
-    input [`WordDataBus] s6_rd_data,
+    input [`WordData] s6_rd_data,
     input s6_rdy_,
 
     input s7_cs_,
-    input [`WordDataBus] s7_rd_data,
+    input [`WordData] s7_rd_data,
     input s7_rdy_,
 
-    output reg [`WordDataBus] m_rd_data,
+    output reg [`WordData] m_rd_data,
     output reg m_rdy_
 );
 

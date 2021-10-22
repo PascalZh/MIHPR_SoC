@@ -1,24 +1,6 @@
 `include "isa.vh"
 `include "cpu.vh"
 
-interface id_reg_io;
-  logic [`AluOp] alu_op;
-  logic [`WordData] alu_in_0, alu_in_1;
-  logic br_flag;
-  logic [`MemOp] mem_op;
-  logic [`WordData] mem_wr_data;
-  logic [`CtrlOp] ctrl_op;
-  logic [`GprAddr] dst_addr;
-  logic gpr_we_;
-  logic [`IsaExp] exp_code;
-  modport in(
-            input alu_op, alu_in_0, alu_in_1, br_flag, mem_op, mem_wr_data, ctrl_op, dst_addr, gpr_we_, exp_code
-          );
-  modport out(
-            output alu_op, alu_in_0, alu_in_1, br_flag, mem_op, mem_wr_data, ctrl_op, dst_addr, gpr_we_, exp_code
-          );
-endinterface //id_reg_io
-
 module id_reg (
     input clk, rst,
     pipeline_io.slave pl,
@@ -32,7 +14,7 @@ module id_reg (
     id_reg_io.out id_out
   );
 
-  task automatic reset();
+  task reset();
     begin
       id_pc <= #1 '0;
       id_en <= #1 `DISABLE;
@@ -48,7 +30,7 @@ module id_reg (
       id_out.gpr_we_ <= #1 `DISABLE_;
       id_out.exp_code <= #1 `ISA_EXP_NO_EXP;
     end
-  endtask //automatic
+  endtask
 
   always @(posedge clk, `RST_EDGE rst) begin
     if (rst == `RST_ENABLE) begin

@@ -1,4 +1,59 @@
 `include "stddef.vh"
+// used to communicate with spm
+interface simple_bus_io;
+  logic [`WordAddr] addr;
+  logic as_;
+  logic rw;
+  logic [`WordData] wr_data;
+  logic [`WordData] rd_data;
+
+  modport slave (
+            input addr, as_, rw, wr_data,
+            output rd_data
+          );
+  modport master (
+            input rd_data,
+            output addr, as_, rw, wr_data
+          );
+endinterface  // simple_bus_io
+
+interface bus_io;
+  logic grnt_;
+  logic req_;
+
+  logic [`WordAddr] addr;
+  logic as_;
+  logic rw;
+  logic [`WordData] wr_data;
+
+  logic [`WordData] rd_data;
+  logic rdy_;
+
+  modport slave (
+            input addr, as_, rw, wr_data,
+            output rd_data,
+            input req_,
+            output grnt_, rdy_
+          );
+  modport master (
+            input rd_data,
+            output addr, as_, rw, wr_data,
+            output req_,
+            input grnt_, rdy_
+          );
+endinterface  // bus_io
+
+interface pipeline_io;
+  logic stall;
+  logic flush;
+  modport slave (
+            input stall, flush
+          );
+  modport master (
+            output stall, flush
+          );
+endinterface  // pipeline_io
+
 module if_stage (
     input clk,
     input rst,

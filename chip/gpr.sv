@@ -48,19 +48,14 @@ module gpr (
 
   integer i;
 
-  always @(posedge clk, `RST_EDGE rst)
-  begin
-    if (rst == `RST_ENABLE)
-    begin
-      for (i = 0; i < `GPR_NUM; i = i + 1)
-      begin
+  always @(posedge clk, `RST_EDGE rst) begin
+    if (rst == `RST_ENABLE) begin
+      for (i = 0; i < `GPR_NUM; i = i + 1) begin
         gpr[i] <= #1 `WORD_DATA_W'h0;
       end
     end
-    else
-    begin
-      if (wr.we_ == `ENABLE_)
-      begin
+    else begin
+      if (wr.we_ == `ENABLE_) begin
         gpr[wr.addr] <= #1 wr.data;
       end
     end

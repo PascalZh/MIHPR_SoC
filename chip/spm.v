@@ -22,23 +22,18 @@ module spm (
   reg we_a, we_b;
 
   // Write enable
-  always @(*)
-  begin
-    if ((if_spm_as_ == `ENABLE_) && (if_spm_rw == `WRITE))
-    begin
+  always @(*) begin
+    if ((if_spm_as_ == `ENABLE_) && (if_spm_rw == `WRITE)) begin
       we_a = `MEM_ENABLE;
     end
-    else
-    begin
+    else begin
       we_a = `MEM_DISABLE;
     end
 
-    if ((mem_spm_as_ == `ENABLE_) && (mem_spm_rw == `WRITE))
-    begin
+    if ((mem_spm_as_ == `ENABLE_) && (mem_spm_rw == `WRITE)) begin
       we_b = `MEM_ENABLE;
     end
-    else
-    begin
+    else begin
       we_b = `MEM_DISABLE;
     end
   end

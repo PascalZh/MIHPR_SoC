@@ -61,4 +61,7 @@
 `define BUS_IF_STATE_ACCESS 2'h2
 `define BUS_IF_STATE_STALL 2'h3
 
+`define ShAmount 4:0
+`define ShAmountLoc 4:0
+
 `endif

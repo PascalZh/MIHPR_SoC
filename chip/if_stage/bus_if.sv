@@ -2,8 +2,7 @@
 `include "bus.vh"
 
 module bus_if (
-    input clk,
-    input rst,
+    input clk, rst,
 
     pipeline_io.slave pl,
     output reg busy,

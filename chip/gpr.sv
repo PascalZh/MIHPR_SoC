@@ -25,7 +25,7 @@ interface gpr_wr_bus_io;
   modport slave(
             input data,
             input addr,
-            output we_
+            input we_
           );
 endinterface // gpr_wr_bus_io
 

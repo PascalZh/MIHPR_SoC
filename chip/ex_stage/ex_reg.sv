@@ -4,19 +4,20 @@
 module ex_reg (
     input clk, rst,
 
-    input alu_overflow,
-
     pipeline_io.slave pl,
     input int_detect,
 
     input [`WordAddr] id_pc,
     input id_en,
-    ex_reg_io.in ex_in,
-    input [`WordData] alu_in,
+    ex_reg_io.in id_in,
 
     output [`WordAddr] ex_pc,
     output ex_en,
     ex_reg_io.out ex_out,
+
+    input alu_overflow,
+    input [`WordData] alu_in,
+
     output [`WordData] ex_data_out
   );
 
@@ -53,27 +54,27 @@ module ex_reg (
         else if (int_detect == `ENABLE) begin
           ex_pc <= #1 id_pc;
           ex_en <= #1 id_en;
-          ex_out.br_flag <= #1 ex_in.br_flag;
+          ex_out.br_flag <= #1 id_in.br_flag;
           reset_result();
           ex_out.exp_code <= #1 `ISA_EXP_EXT_INT;
         end
         else if (alu_overflow == `ENABLE) begin
           ex_pc <= #1 id_pc;
           ex_en <= #1 id_en;
-          ex_out.br_flag <= #1 ex_in.br_flag;
+          ex_out.br_flag <= #1 id_in.br_flag;
           reset_result();
           ex_out.exp_code <= #1 `ISA_EXP_OVERFLOW;
         end
         else begin
           ex_pc <= #1 id_pc;
           ex_en <= #1 id_en;
-          ex_out.br_flag <= #1 ex_in.br_flag;
-          ex_out.exp_code <= #1 ex_in.exp_code;
-          ex_out.mem_op <= #1 ex_in.mem_op;
-          ex_out.mem_wr_data <= #1 ex_in.mem_wr_data;
-          ex_out.ctrl_op <= #1 ex_in.ctrl_op;
-          ex_out.dst_addr <= #1 ex_in.dst_addr;
-          ex_out.gpr_we_ <= #1 ex_in.gpr_we_;
+          ex_out.br_flag <= #1 id_in.br_flag;
+          ex_out.exp_code <= #1 id_in.exp_code;
+          ex_out.mem_op <= #1 id_in.mem_op;
+          ex_out.mem_wr_data <= #1 id_in.mem_wr_data;
+          ex_out.ctrl_op <= #1 id_in.ctrl_op;
+          ex_out.dst_addr <= #1 id_in.dst_addr;
+          ex_out.gpr_we_ <= #1 id_in.gpr_we_;
           ex_data_out <= #1 alu_in;
         end
       end

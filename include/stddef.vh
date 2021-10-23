@@ -21,7 +21,7 @@
 `define WordAddr 29:0
 
 `define BYTE_OFFSET_W 2
-`define ByteOffsetBus 1:0
+`define ByteOffset 1:0
 
 `define WordAddrLoc 31:2
 `define ByteOffsetLoc 1:0

@@ -10,6 +10,8 @@
 `define BUS_SLAVE_INDEX_NUM 3
 `define BUS_SLAVE_NUM 8
 `define BUS_SLAVE_0 0
+
+// slave 1 is used for spm
 `define BUS_SLAVE_1 1
 `define BUS_SLAVE_2 2
 `define BUS_SLAVE_3 3

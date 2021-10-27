@@ -1,20 +1,6 @@
 `include "cpu.vh"
 `include "isa.vh"
 
-interface mem_reg_io;
-  logic br_flag;
-  logic [`CtrlOp] ctrl_op;
-  logic [`GprAddr] dst_addr;
-  logic gpr_we_;
-  logic [`IsaExp] exp_code;
-  modport in(
-            input br_flag, ctrl_op, dst_addr, gpr_we_, exp_code
-          );
-  modport out(
-            output br_flag, ctrl_op, dst_addr, gpr_we_, exp_code
-          );
-endinterface //mem_reg_io
-
 module mem_reg (
     input clk, input rst,
 

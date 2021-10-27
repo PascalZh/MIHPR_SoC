@@ -45,6 +45,7 @@
 `define CREG_ADDR_CAUSE 5'h5
 `define CREG_ADDR_INT_MASK 5'h6
 `define CREG_ADDR_IRQ 5'h7
+
 `define CREG_ADDR_ROM_SIZE 5'h1d
 `define CREG_ADDR_SPM_SIZE 5'h1e
 `define CREG_ADDR_CPU_INFO 5'h1f
@@ -63,5 +64,13 @@
 
 `define ShAmount 4:0
 `define ShAmountLoc 4:0
+
+`define Irq 7:0
+`define CPU_IRQ_W 8
+
+`define RELEASE_YEAR 8'd21
+`define RELEASE_MONTH 8'd11
+`define RELEASE_VERSION 8'd0
+`define RELEASE_REVISION 8'd1
 
 `endif

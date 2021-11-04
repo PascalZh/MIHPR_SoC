@@ -25,7 +25,7 @@ module id_stage (
     input [`WordAddr] if_pc,
     input [`WordData] if_insn,
 
-    gpr_rd_bus_io.master gpr,
+    gpr_rd_bus_io.master gpr_rd,
 
     // control reg
     input exe_mode,
@@ -56,7 +56,7 @@ module id_stage (
   decoder decoder(
             .if_pc (if_pc),
             .if_insn (if_insn),
-            .gpr (gpr),
+            .gpr (gpr_rd),
 
             // id_reg reconnect to decoder
             .id_en (id_en),

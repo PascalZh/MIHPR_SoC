@@ -25,6 +25,7 @@
     "negedge",
     "posedge",
     "RDCR",
+    "regs",
     "SHLL",
     "SHLLI",
     "SHLLR",
@@ -35,6 +36,7 @@
     "SUBSR",
     "SUBU",
     "SUBUR",
+    "UART",
     "WRCR",
     "XORI",
     "XORR"

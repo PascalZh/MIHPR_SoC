@@ -68,7 +68,7 @@ module if_stage (
     // control the branch
     input [`WordAddr] new_pc,
     input br_taken,
-    input br_addr,
+    input [`WordAddr] br_addr,
     // if_insn is one cycle behind if_pc
     output reg [`WordAddr] if_pc,
     output reg [`WordData] if_insn,

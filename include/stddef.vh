@@ -19,13 +19,13 @@
 `define WORD_ADDR_W 30
 `define WORD_ADDR_MSB 29
 `define WordAddr 29:0
+`define WordAddrLoc 31:2
+
+`define BYTE_MSB 7
 
 `define BYTE_OFFSET_W 2
-`define ByteOffset 1:0
-
-`define WordAddrLoc 31:2
-`define ByteOffsetLoc 1:0
-
 `define BYTE_OFFSET_WORD 2'b00
+`define ByteOffset 1:0
+`define ByteOffsetLoc 1:0
 
 `endif

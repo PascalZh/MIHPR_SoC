@@ -181,7 +181,7 @@ module ctrl (
               exp_code <= #1 mem_data_in[`CregExpCodeLoc];
             end
             `CREG_ADDR_INT_MASK: begin
-              mask <= #1 mem_data_in[`CPU_IRQ_W-1:0];
+              mask <= #1 mem_data_in[`IrqMaskLoc];
             end
           endcase
         end

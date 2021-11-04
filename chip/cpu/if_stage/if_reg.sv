@@ -5,13 +5,13 @@ module if_reg (
     input clk,
     input rst,
 
-    input insn,  // 读取的指令
+    input [`WordData] insn,  // 读取的指令
     pipeline_io.slave pl,
 
     // control the branch
     input [`WordAddr] new_pc,
     input br_taken,
-    input br_addr,
+    input [`WordAddr] br_addr,
     // if_insn is one cycle behind if_pc
     output reg [`WordAddr] if_pc,
     output reg [`WordData] if_insn,

@@ -66,6 +66,7 @@
 `define ShAmountLoc 4:0
 
 `define Irq 7:0
+`define IrqMaskLoc 7:0
 `define CPU_IRQ_W 8
 
 `define RELEASE_YEAR 8'd21

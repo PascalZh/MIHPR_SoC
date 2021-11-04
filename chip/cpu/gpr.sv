@@ -46,11 +46,9 @@ module gpr (
 
   // Write logic
 
-  integer i;
-
   always @(posedge clk, `RST_EDGE rst) begin
     if (rst == `RST_ENABLE) begin
-      for (i = 0; i < `GPR_NUM; i = i + 1) begin
+      for (int i = 0; i < `GPR_NUM; i = i + 1) begin
         gpr[i] <= #1 `WORD_DATA_W'h0;
       end
     end

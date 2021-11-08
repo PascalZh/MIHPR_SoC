@@ -1,6 +1,7 @@
 `include "stddef.vh"
 `include "uart.vh"
 
+//! **Highlight**: Receive data with a shifting register, avoid complex state machine logics.
 module uart_rx (
     input clk, rst,
     output rx_busy,
@@ -22,7 +23,7 @@ module uart_rx (
       rx_data <= #1 '0;
       state <= #1 `UART_STATE_IDLE;
       div_cnt <= #1 `UART_DIV_RATE / 2;
-      bit_cnt <= #1 '0;
+      bit_cnt <= #1 `UART_BIT_CNT_START;
     end
     else begin
       case (state)

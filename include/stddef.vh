@@ -22,6 +22,7 @@
 `define WordAddrLoc 31:2
 
 `define BYTE_MSB 7
+`define BYTE_DATA_W 8
 
 `define BYTE_OFFSET_W 2
 `define BYTE_OFFSET_WORD 2'b00

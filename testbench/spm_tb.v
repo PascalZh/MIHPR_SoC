@@ -23,33 +23,33 @@ spm spm(
     );
 
 
-localparam CLK_PERIOD = 10;
-always #(CLK_PERIOD/2) clk=~clk;
+`define CLK_PERIOD 10
+always #(`CLK_PERIOD/2) clk=~clk;
 
 initial begin
-  clk = 0;
+  clk = 1;
   wr_data = 0;
   addr = 0;
 
   as_ = `DISABLE_;
-  #(CLK_PERIOD*20 +1 );
+  #(`CLK_PERIOD*20);
   for (i=0;i<=15;i=i+1) begin
     as_ = `ENABLE_;
     rw = `WRITE;
     wr_data = 255 - i;
     addr = i;
-    #CLK_PERIOD;
+    #`CLK_PERIOD;
   end
 
   as_ = `DISABLE_;
-  #(CLK_PERIOD*20);
+  #(`CLK_PERIOD*20);
   for (i=0;i<=15;i=i+1) begin
     as_ = `ENABLE_;
     rw = `READ;
     addr = i;
-    #CLK_PERIOD;
+    #`CLK_PERIOD;
   end
-  #(CLK_PERIOD*20);
+  #(`CLK_PERIOD*20);
   $stop;
 end
 

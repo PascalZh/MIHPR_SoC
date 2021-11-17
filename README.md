@@ -10,3 +10,9 @@
 ## IF stage
 ### `bus_if`
 The IF bus will check the `stall` when `rdy_` is returned.
+
+### `new_pc`
+`new_pc` will be set to IF stage registers when `flush` is enabled (when `WRCR`, `EXRT` are executed, or exception occurs).
+
+## WB stage
+`dly_flag` is just `br_flag` from ID stage.

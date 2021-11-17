@@ -145,7 +145,7 @@ module ctrl (
         pre_pc <= #1 mem_pc;
         br_flag <= #1 mem_br_flag;
         if (mem_exp_code != `ISA_EXP_NO_EXP) begin
-          // @1 see @2
+          // exception occurred, see @1 for returning from the exception program
           pre_exe_mode <= #1 exe_mode;
           pre_int_en <= #1 int_en;
 
@@ -156,7 +156,7 @@ module ctrl (
           epc <= #1 pre_pc;
         end
         else if (mem_ctrl_op == `CTRL_OP_EXRT) begin
-          // @2
+          // @1
           exe_mode <= #1 pre_exe_mode;
           int_en <= #1 pre_int_en;
         end
